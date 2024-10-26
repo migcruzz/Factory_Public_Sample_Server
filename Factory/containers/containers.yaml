@@ -57,6 +57,7 @@ components:
             value:
               type: boolean
               description: "Estado de atividade do contêiner (true ou false)"
+        
 
   # Caminhos de API
 paths:

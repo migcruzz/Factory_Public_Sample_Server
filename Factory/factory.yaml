@@ -32,100 +32,13 @@ components:
                 type: number
               description: "Coordenadas de latitude e longitude"
         ##Now is the data integration with other parts:
-        sector:
+        sectors:
           type: object
-          required:
-            - sector
-          allOf:
-          
-
-        
-          
-
-    Sector:
-      type: object
-      properties:
-        id:
-          type: string
-          description: "Identificador único do setor"
-        type:
-          type: string
-          enum: ["Sector"]
-          description: "Define o tipo como 'Sector'"
-        factoryId:
-          type: object
-          description: "Relacionamento com a fábrica a que pertence"
+          description: "Setores associados a esta fabrica"
           properties:
-            type:
-              type: string
-              enum: ["Relationship"]
-            object:
-              type: string
-              description: "ID da fábrica"
-        location:
-          type: object
-          description: "Localização geográfica do setor"
-          properties:
-            type:
-              type: string
-              enum: ["Point"]
-            coordinates:
-              type: array
-              items:
-                type: number
-              description: "Coordenadas de latitude e longitude"
-
-    Container:
-      type: object
-      properties:
-        id:
-          type: string
-          description: "Identificador único do contêiner"
-        type:
-          type: string
-          enum: ["Container"]
-          description: "Define o tipo como 'Container'"
-        container_code:
-          type: object
-          description: "Código do contêiner"
-          properties:
-            type:
-              type: string
-              enum: ["Property"]
-            value:
-              type: string
-              description: "Código identificador do contêiner"
-        container_volume:
-          type: object
-          description: "Volume do contêiner em litros"
-          properties:
-            type:
-              type: string
-              enum: ["Property"]
-            value:
-              type: number
-              description: "Volume em litros"
-        sectorId:
-          type: object
-          description: "Relacionamento com o setor a que pertence o contêiner"
-          properties:
-            type:
-              type: string
-              enum: ["Relationship"]
-            object:
-              type: string
-              description: "ID do setor"
-        active:
-          type: object
-          description: "Indica se o contêiner está ativo"
-          properties:
-            type:
-              type: string
-              enum: ["Property"]
-            value:
-              type: boolean
-              description: "Estado de atividade do contêiner (true ou false)"
-
+            setor:
+              $ref: https://migcruzz.github.io/Factory_Public_Sample_Server/Factory/sectors/sectors.yaml
+      
   # Caminhos de API
 paths:
   /ngsi-ld/v1/entities:

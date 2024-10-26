@@ -39,7 +39,27 @@ components:
               items:
                 type: number
               description: "Coordenadas de latitude e longitude"
+        containers:
+          type: object
+          description: "Contentores associados a este setor"
+          properties:
+            temperature:
+              $ref: https://migcruzz.github.io/Factory_Public_Sample_Server/Factory/containers/containers.yaml
         
+        porticos:
+          MotionSensor:
+            type: object
+            required:
+              -  MotionSensor
+            allOf:
+            - $ref: https://migcruzz.github.io/Factory_Public_Sample_Server/Factory/fiware_default/default_fiware_device.yaml#/Device
+
+            description: >
+              A device that consists of a sensor, has category `saref:Sensor` and is used for the purpose of sensing filling Level.
+      
+            properties:
+              motion:
+                $ref: https://migcruzz.github.io/Factory_Public_Sample_Server/Factory/fiware_default/saref-terms_default_fiware.yaml#/motion
 
   # Caminhos de API
 paths:
