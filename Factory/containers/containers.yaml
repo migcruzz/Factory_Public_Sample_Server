@@ -80,7 +80,7 @@ paths:
         content:
           application/ld+json:
             schema:
-              $ref: "#/components/schemas/Factory"
+              $ref: "#/components/schemas/Container"
       responses:
         "201":
           description: "Entidade criada com sucesso"

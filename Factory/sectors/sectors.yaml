@@ -5,8 +5,7 @@ info:
   version: "1.0.0"
 
 components:
-  schemas:          
-
+  schemas:
     Sector:
       type: object
       properties:
@@ -45,23 +44,18 @@ components:
           properties:
             temperature:
               $ref: https://migcruzz.github.io/Factory_Public_Sample_Server/Factory/containers/containers.yaml
-        
         porticos:
           MotionSensor:
             type: object
             required:
-              -  MotionSensor
+              - MotionSensor
             allOf:
-            - $ref: https://migcruzz.github.io/Factory_Public_Sample_Server/Factory/fiware_default/default_fiware_device.yaml
-
-            description: >
-              A device that consists of a sensor, has category `saref:Sensor` and is used for the purpose of sensing filling Level.
-      
+              - $ref: "/Factory/fiware_default/default_fiware_device.yaml"
+            description: "Um dispositivo sensor da categoria saref:Sensor, utilizado para detectar o nível de preenchimento."
             properties:
               motion:
                 $ref: https://migcruzz.github.io/Factory_Public_Sample_Server/Factory/fiware_default/saref-terms_default_fiware.yaml#/motion
 
-  # Caminhos de API
 paths:
   /ngsi-ld/v1/entities:
     get:
